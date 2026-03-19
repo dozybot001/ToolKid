@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Landing from './pages/Landing'
 
 const CalmMD = lazy(() => import('./features/calmmd'))
@@ -9,6 +9,7 @@ const PureColor = lazy(() => import('./features/pure-color'))
 const Translator = lazy(() => import('./features/translator'))
 const FetchReadme = lazy(() => import('./features/fetch-readme'))
 const FileSizeChart = lazy(() => import('./features/file-size-chart'))
+const PromptAmp = lazy(() => import('./features/prompt-amp'))
 
 function Loading() {
   return (
@@ -28,7 +29,7 @@ function Loading() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -39,8 +40,9 @@ export default function App() {
           <Route path="/translator" element={<Translator />} />
           <Route path="/fetch-readme" element={<FetchReadme />} />
           <Route path="/file-size-chart" element={<FileSizeChart />} />
+          <Route path="/prompt-amp" element={<PromptAmp />} />
         </Routes>
       </Suspense>
-    </BrowserRouter>
+    </HashRouter>
   )
 }

@@ -76,6 +76,16 @@ export const miniTools: Tool[] = [
     icon: '📥',
   },
   {
+    id: 'prompt-amp',
+    name: 'Prompt Amplifier',
+    subtitle: 'Prompt 放大器',
+    description: '将粗略想法通过 3 轮 AI 分析，扩展为可编辑的结构化详细规格',
+    path: '/prompt-amp',
+    accent: '#c9a87a',
+    tags: [],
+    icon: '🔬',
+  },
+  {
     id: 'file-size-chart',
     name: 'File Size',
     subtitle: '文件大小分析',

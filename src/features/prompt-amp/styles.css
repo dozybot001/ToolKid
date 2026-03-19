@@ -1,0 +1,201 @@
+/* ── Prompt Amplifier ── */
+
+/* Settings */
+.pa-settings {
+  margin-bottom: 24px;
+}
+
+.pa-settings-toggle {
+  margin-bottom: 8px;
+}
+
+.pa-settings-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
+
+.pa-settings-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pa-settings-row .tk-label {
+  margin-bottom: 0;
+}
+
+/* Input area */
+.pa-input-area {
+  margin-bottom: 24px;
+}
+
+.pa-input-area .tk-textarea {
+  min-height: 120px;
+  margin-bottom: 12px;
+}
+
+.pa-actions {
+  gap: 8px;
+}
+
+/* Error */
+.pa-error {
+  color: #e85c5c;
+  font-size: 0.85rem;
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  background: rgba(232, 92, 92, 0.08);
+  border: 1px solid rgba(232, 92, 92, 0.15);
+  border-radius: var(--tk-radius-sm);
+}
+
+/* Round progress */
+.pa-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 14px 16px;
+  background: var(--tk-surface);
+  border: 1px solid var(--tk-border);
+  border-radius: var(--tk-radius-md);
+}
+
+.pa-step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.pa-step-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  background: var(--tk-surface);
+  border: 1px solid var(--tk-border);
+  color: var(--tk-text-tertiary);
+  transition: all 0.3s ease;
+}
+
+.pa-step-label {
+  font-size: 0.78rem;
+  color: var(--tk-text-tertiary);
+  transition: color 0.3s ease;
+}
+
+.pa-step--running .pa-step-dot {
+  background: var(--tk-accent-dim);
+  border-color: var(--tk-accent);
+  color: var(--tk-accent);
+  animation: pa-pulse 1.5s ease-in-out infinite;
+}
+
+.pa-step--running .pa-step-label {
+  color: var(--tk-accent);
+}
+
+.pa-step--done .pa-step-dot {
+  background: rgba(80, 200, 120, 0.15);
+  border-color: rgba(80, 200, 120, 0.4);
+  color: #50c878;
+}
+
+.pa-step--done .pa-step-label {
+  color: var(--tk-text-secondary);
+}
+
+.pa-step--error .pa-step-dot {
+  background: rgba(232, 92, 92, 0.15);
+  border-color: rgba(232, 92, 92, 0.4);
+  color: #e85c5c;
+}
+
+.pa-step--error .pa-step-label {
+  color: #e85c5c;
+}
+
+@keyframes pa-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Stream preview (round 1 analysis) */
+.pa-stream-preview {
+  margin-bottom: 24px;
+  padding: 16px;
+}
+
+.pa-stream-preview .tk-label {
+  margin-bottom: 8px;
+}
+
+.pa-stream-text {
+  font-family: var(--tk-font-sans);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--tk-text-secondary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+}
+
+/* Spec editor */
+.pa-editor {
+  margin-top: 8px;
+}
+
+.pa-editor-header {
+  margin-bottom: 16px;
+}
+
+.pa-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pa-section {
+  padding: 14px 16px;
+}
+
+.pa-section-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--tk-accent);
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+
+.pa-section-content {
+  width: 100%;
+  min-height: 60px;
+  padding: 10px 12px;
+  font-family: var(--tk-font-sans);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--tk-text);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--tk-border);
+  border-radius: var(--tk-radius-sm);
+  resize: vertical;
+  transition: border-color var(--tk-transition);
+}
+
+.pa-section-content:focus {
+  outline: none;
+  border-color: var(--tk-border-focus);
+}
+
+.pa-section-content:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
