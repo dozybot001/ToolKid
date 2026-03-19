@@ -1,6 +1,6 @@
-[中文](./README_CN.md)
-
 # ToolKid
+
+[中文](./README_CN.md) ｜ English
 
 A collection of small, focused web tools sharing one tech stack and a unified entry point.
 
