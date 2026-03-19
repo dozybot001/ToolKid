@@ -1,0 +1,337 @@
+/* === Root scope (from index.css body/html/#root styles) === */
+
+.translator-root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.translator-root *,
+.translator-root *::before,
+.translator-root *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === App layout (from App.css) === */
+
+.translator-root .app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f5f5f5;
+}
+
+/* === Sidebar (from Sidebar.css) === */
+
+.translator-root .sidebar {
+  width: 320px;
+  background-color: #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.translator-root .sidebar.collapsed {
+  width: 60px;
+}
+
+.translator-root .sidebar-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0s ease 0.3s, visibility 0s linear 0.3s;
+  overflow: hidden;
+}
+
+.translator-root .sidebar.collapsed .sidebar-content {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0s ease 0s, visibility 0s linear 0s;
+}
+
+.translator-root .hamburger-button {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  flex-shrink: 0;
+  background-color: #d0d0d0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.translator-root .hamburger-button:hover {
+  background-color: #c0c0c0;
+}
+
+.translator-root .hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: #1a1a1a;
+}
+
+.translator-root .upload-area {
+  flex-shrink: 0;
+  background-color: #d8d8d8;
+  margin: 20px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  min-height: 160px;
+}
+
+.translator-root .upload-area:hover {
+  background-color: #d0d0d0;
+}
+
+.translator-root .upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.translator-root .upload-icon {
+  font-size: 48px;
+  opacity: 0.6;
+}
+
+.translator-root .upload-text {
+  font-size: 14px;
+  color: #4a4a4a;
+  text-align: center;
+}
+
+.translator-root .file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.translator-root .translate-button {
+  flex-shrink: 0;
+  margin: 0 20px 20px 20px;
+  padding: 18px;
+  width: calc(100% - 40px);
+  min-height: 56px;
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border: none;
+}
+
+.translator-root .translate-button:hover {
+  background-color: #2a2a2a;
+}
+
+.translator-root .translate-button:active {
+  background-color: #0a0a0a;
+}
+
+.translator-root .settings-section {
+  flex: 1;
+  padding: 0 20px 20px 20px;
+  overflow-y: auto;
+}
+
+.translator-root .settings-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.translator-root .setting-group {
+  margin-bottom: 24px;
+}
+
+.translator-root .setting-group-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.translator-root .setting-item {
+  margin-bottom: 16px;
+}
+
+.translator-root .setting-label {
+  display: block;
+  font-size: 12px;
+  color: #4a4a4a;
+  margin-bottom: 10px;
+  padding: 2px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.translator-root .setting-input,
+.translator-root .setting-select {
+  width: 100%;
+  padding: 14px;
+  min-height: 44px;
+  background-color: #f0f0f0;
+  color: #1a1a1a;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.translator-root .setting-input:hover,
+.translator-root .setting-select:hover {
+  background-color: #e8e8e8;
+}
+
+.translator-root .setting-input:focus,
+.translator-root .setting-select:focus {
+  background-color: #e8e8e8;
+}
+
+.translator-root .model-name-item {
+  margin-bottom: 12px;
+}
+
+.translator-root .model-name-input-wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.translator-root .model-name-input {
+  flex: 1;
+}
+
+.translator-root .remove-model-button {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  background-color: #d0d0d0;
+  color: #1a1a1a;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.translator-root .remove-model-button:hover {
+  background-color: #c0c0c0;
+}
+
+.translator-root .add-model-button {
+  width: 100%;
+  padding: 14px;
+  min-height: 44px;
+  background-color: #d8d8d8;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border: none;
+}
+
+.translator-root .add-model-button:hover {
+  background-color: #d0d0d0;
+}
+
+/* === MainContent (from MainContent.css) === */
+
+.translator-root .main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  overflow: hidden;
+}
+
+.translator-root .content-header {
+  background-color: #f0f0f0;
+  padding: 20px 30px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.translator-root .header-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.translator-root .content-body {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  background-color: #fafafa;
+}
+
+.translator-root .empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+}
+
+.translator-root .empty-icon {
+  font-size: 64px;
+  opacity: 0.3;
+}
+
+.translator-root .empty-text {
+  font-size: 16px;
+  color: #6a6a6a;
+  text-align: center;
+}

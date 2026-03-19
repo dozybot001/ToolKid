@@ -1,0 +1,239 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--tk-font-sans);
+  background: var(--tk-bg);
+  color: var(--tk-text);
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.landing {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 80px 24px 60px;
+}
+
+/* ── Header ── */
+.landing-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.landing-title {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+.landing-subtitle {
+  color: var(--tk-text-tertiary);
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+/* ── Sections ── */
+.tool-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Featured cards (CalmMD, Translator) ── */
+.tool-grid-featured {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.featured-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 220px;
+  padding: 28px;
+  border-radius: var(--tk-radius-lg);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  border: 1px solid var(--tk-border);
+  transition: transform var(--tk-transition), border-color var(--tk-transition);
+}
+
+.featured-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-accent, var(--tk-border));
+}
+
+.featured-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
+}
+
+.featured-card:hover::before {
+  opacity: 0.8;
+}
+
+/* CalmMD: warm brown gradient */
+.featured-card--calmmd::before {
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(139, 115, 85, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(120, 90, 60, 0.1) 0%, transparent 50%),
+    linear-gradient(160deg, rgba(60, 45, 30, 0.3) 0%, transparent 50%);
+}
+
+/* Translator: cool grey gradient */
+.featured-card--translator::before {
+  background:
+    radial-gradient(ellipse at 70% 20%, rgba(155, 155, 175, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(100, 120, 155, 0.08) 0%, transparent 50%),
+    linear-gradient(160deg, rgba(40, 45, 60, 0.25) 0%, transparent 50%);
+}
+
+.featured-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.featured-card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
+.featured-card-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 2px;
+}
+
+.featured-card-subtitle {
+  font-size: 0.82rem;
+  color: var(--tk-text-secondary);
+  margin-bottom: 10px;
+}
+
+.featured-card-description {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--tk-text-secondary);
+  margin-bottom: 14px;
+}
+
+.featured-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.featured-card-tag {
+  font-size: 0.68rem;
+  font-family: var(--tk-font-mono);
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--tk-text-tertiary);
+  letter-spacing: 0.02em;
+}
+
+/* ── Mini cards (QuizGo, AutoSpace, PureColor) ── */
+.tool-grid-mini {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.mini-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  background: var(--tk-surface);
+  border: 1px solid var(--tk-border);
+  border-radius: var(--tk-radius-md);
+  text-decoration: none;
+  color: inherit;
+  transition: background var(--tk-transition), border-color var(--tk-transition), transform var(--tk-transition);
+}
+
+.mini-card:hover {
+  background: var(--tk-surface-hover);
+  border-color: var(--tk-border-focus);
+  transform: translateY(-1px);
+}
+
+.mini-card-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.mini-card-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.mini-card-subtitle {
+  font-size: 0.78rem;
+  color: var(--tk-text-tertiary);
+  white-space: nowrap;
+}
+
+/* ── Footer ── */
+.landing-footer {
+  text-align: center;
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--tk-border);
+  color: var(--tk-text-tertiary);
+  font-size: 0.82rem;
+}
+
+.landing-footer a {
+  color: var(--tk-text-secondary);
+  text-decoration: none;
+}
+
+.landing-footer a:hover {
+  color: var(--tk-text);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .landing {
+    padding: 48px 16px 40px;
+  }
+
+  .landing-header {
+    margin-bottom: 36px;
+  }
+
+  .tool-grid-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-card {
+    min-height: 180px;
+  }
+
+  .tool-grid-mini {
+    flex-direction: column;
+  }
+}

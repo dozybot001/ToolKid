@@ -1,0 +1,111 @@
+/* File Size Chart – layout only */
+
+.file-size-chart-root .fsc-action {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.file-size-chart-root .fsc-action .tk-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.file-size-chart-root .fsc-folder-name {
+  font-size: 0.82rem;
+  color: var(--tk-text-secondary);
+}
+
+.file-size-chart-root .fsc-error {
+  font-size: 0.85rem;
+  color: #c0736e;
+  margin: 0 0 16px;
+}
+
+/* Chart */
+.file-size-chart-root .fsc-chart-wrap {
+  position: relative;
+  height: 280px;
+  margin-bottom: 24px;
+}
+
+/* File list */
+.file-size-chart-root .fsc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.file-size-chart-root .fsc-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--tk-radius-sm);
+  font-size: 0.82rem;
+  transition: background var(--tk-transition);
+}
+
+.file-size-chart-root .fsc-list-item:hover {
+  background: var(--tk-surface);
+}
+
+.file-size-chart-root .fsc-list-item--warn {
+  background: rgba(192, 115, 110, 0.08);
+}
+
+.file-size-chart-root .fsc-list-item--warn:hover {
+  background: rgba(192, 115, 110, 0.14);
+}
+
+.file-size-chart-root .fsc-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.file-size-chart-root .fsc-list-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--tk-text);
+}
+
+.file-size-chart-root .fsc-list-badge {
+  font-family: var(--tk-font-mono);
+  font-size: 0.68rem;
+  color: #c0736e;
+  background: rgba(192, 115, 110, 0.12);
+  padding: 1px 6px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.file-size-chart-root .fsc-list-count {
+  font-size: 0.75rem;
+  color: var(--tk-text-tertiary);
+  flex-shrink: 0;
+}
+
+.file-size-chart-root .fsc-list-size {
+  font-family: var(--tk-font-mono);
+  font-size: 0.78rem;
+  color: var(--tk-text-secondary);
+  flex-shrink: 0;
+  min-width: 70px;
+  text-align: right;
+}
+
+.file-size-chart-root .fsc-list-pct {
+  font-family: var(--tk-font-mono);
+  font-size: 0.75rem;
+  color: var(--tk-text-tertiary);
+  flex-shrink: 0;
+  min-width: 44px;
+  text-align: right;
+}

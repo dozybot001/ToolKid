@@ -1,0 +1,32 @@
+/* Fetch README – layout only */
+
+.fetch-readme-root .fr-input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.fetch-readme-root .fr-input-row .tk-input {
+  flex: 1;
+}
+
+.fetch-readme-root .fr-input-row .tk-btn {
+  flex-shrink: 0;
+}
+
+.fetch-readme-root .fr-input-row .tk-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.fetch-readme-root .fr-status {
+  font-size: 0.85rem;
+  color: var(--tk-text-secondary);
+  margin: 0;
+}
+
+.fetch-readme-root .fr-error {
+  font-size: 0.85rem;
+  color: #c0736e;
+  margin: 0 0 8px;
+}

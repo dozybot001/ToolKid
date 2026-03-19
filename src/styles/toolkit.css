@@ -1,0 +1,248 @@
+/*
+ * ToolKid Shared Components
+ *
+ * 通用工具页面使用的组件类。用 .tk- 前缀避免冲突。
+ * 工具页面只需写自己的布局，交互组件复用这里的类。
+ */
+
+/* ── Page nav (back link) ── */
+.tk-nav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.tk-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--tk-font-sans);
+  font-size: 0.78rem;
+  color: var(--tk-text-tertiary);
+  text-decoration: none;
+  padding: 4px 0;
+  transition: color var(--tk-transition);
+}
+
+.tk-nav-back:hover {
+  color: var(--tk-text-secondary);
+}
+
+.tk-nav-back svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ── Page container ── */
+.tk-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 24px 60px;
+  font-family: var(--tk-font-sans);
+  color: var(--tk-text);
+  line-height: var(--tk-leading);
+  min-height: 100dvh;
+}
+
+.tk-page--narrow {
+  max-width: 640px;
+}
+
+/* ── Page header ── */
+.tk-page-header {
+  margin-bottom: 36px;
+}
+
+.tk-page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+  color: var(--tk-text);
+}
+
+.tk-page-subtitle {
+  font-size: 0.88rem;
+  color: var(--tk-text-tertiary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Button ── */
+.tk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 22px;
+  font-family: var(--tk-font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1;
+  border: 1px solid var(--tk-border);
+  border-radius: var(--tk-radius-md);
+  background: var(--tk-surface);
+  color: var(--tk-text);
+  cursor: pointer;
+  transition: background var(--tk-transition), border-color var(--tk-transition), transform 0.15s ease;
+  white-space: nowrap;
+  min-height: 40px;
+}
+
+.tk-btn:hover {
+  background: var(--tk-surface-hover);
+  border-color: var(--tk-border-focus);
+}
+
+.tk-btn:active {
+  transform: scale(0.97);
+  background: var(--tk-surface-active);
+}
+
+/* Small variant */
+.tk-btn--sm {
+  padding: 5px 14px;
+  font-size: 0.78rem;
+  min-height: 30px;
+  border-radius: var(--tk-radius-sm);
+}
+
+/* Ghost: no background until hover */
+.tk-btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--tk-text-secondary);
+}
+
+.tk-btn--ghost:hover {
+  background: var(--tk-surface);
+  border-color: var(--tk-border);
+  color: var(--tk-text);
+}
+
+/* ── Label ── */
+.tk-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--tk-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+/* ── Textarea ── */
+.tk-textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 14px 16px;
+  font-family: var(--tk-font-sans);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--tk-text);
+  background: var(--tk-surface);
+  border: 1px solid var(--tk-border);
+  border-radius: var(--tk-radius-md);
+  resize: vertical;
+  transition: border-color var(--tk-transition);
+}
+
+.tk-textarea::placeholder {
+  color: var(--tk-text-placeholder);
+}
+
+.tk-textarea:focus {
+  outline: none;
+  border-color: var(--tk-border-focus);
+}
+
+/* ── Text input ── */
+.tk-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: var(--tk-font-sans);
+  font-size: 0.92rem;
+  line-height: 1;
+  color: var(--tk-text);
+  background: var(--tk-surface);
+  border: 1px solid var(--tk-border);
+  border-radius: var(--tk-radius-sm);
+  transition: border-color var(--tk-transition);
+}
+
+.tk-input::placeholder {
+  color: var(--tk-text-placeholder);
+}
+
+.tk-input:focus {
+  outline: none;
+  border-color: var(--tk-border-focus);
+}
+
+/* Mono variant for code/hex values */
+.tk-input--mono {
+  font-family: var(--tk-font-mono);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* ── Surface card (grouped content) ── */
+.tk-surface {
+  background: var(--tk-surface);
+  border: 1px solid var(--tk-border);
+  border-radius: var(--tk-radius-md);
+  padding: 16px;
+}
+
+/* ── Row / flex utilities ── */
+.tk-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tk-row--between {
+  justify-content: space-between;
+}
+
+/* ── Code block (for format examples etc.) ── */
+.tk-code {
+  font-family: var(--tk-font-mono);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--tk-text-secondary);
+  background: var(--tk-surface);
+  border: 1px solid var(--tk-border);
+  border-radius: var(--tk-radius-sm);
+  padding: 12px 14px;
+  margin: 0;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* ── Hint text ── */
+.tk-hint {
+  font-size: 0.72rem;
+  color: var(--tk-text-tertiary);
+  letter-spacing: 0.02em;
+}
+
+/* ── Scrollbar ── */
+.tk-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.tk-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tk-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+
+.tk-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
+}

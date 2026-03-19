@@ -1,0 +1,145 @@
+/* Pure Color – 仅布局和特有组件，其余复用 toolkit.css */
+
+.pure-color-root .pc-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Preview circle */
+.pure-color-root .pc-preview {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid var(--tk-border);
+  cursor: pointer;
+  transition: transform var(--tk-transition), border-color var(--tk-transition);
+}
+
+.pure-color-root .pc-preview:hover {
+  transform: scale(1.05);
+  border-color: var(--tk-border-focus);
+}
+
+/* Color input row */
+.pure-color-root .pc-color-native {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: var(--tk-radius-sm);
+  cursor: pointer;
+  background: transparent;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.pure-color-root .pc-color-native::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+
+.pure-color-root .pc-color-native::-webkit-color-swatch {
+  border: none;
+  border-radius: 6px;
+}
+
+/* Preset colors */
+.pure-color-root .pc-presets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pure-color-root .pc-preset {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--tk-border);
+  cursor: pointer;
+  padding: 0;
+  transition: transform var(--tk-transition), border-color var(--tk-transition);
+}
+
+.pure-color-root .pc-preset:hover {
+  transform: scale(1.15);
+}
+
+.pure-color-root .pc-preset--active {
+  border-color: var(--tk-text-secondary);
+}
+
+/* Actions row */
+.pure-color-root .pc-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Fullscreen overlay */
+.pure-color-root .pc-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 24px;
+  animation: pc-fade-in 0.3s ease;
+}
+
+@keyframes pc-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.pure-color-root .pc-fs-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pure-color-root .pc-fs-label {
+  font-family: var(--tk-font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  opacity: 0.55;
+  user-select: all;
+}
+
+.pure-color-root .pc-fs-exit {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(128, 128, 128, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--tk-transition);
+}
+
+.pure-color-root .pc-fs-exit:hover {
+  background: rgba(128, 128, 128, 0.32);
+}
+
+@media (max-width: 480px) {
+  .pure-color-root .pc-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .pure-color-root .pc-actions .tk-btn {
+    width: 100%;
+  }
+
+  .pure-color-root .pc-preview {
+    width: 100px;
+    height: 100px;
+  }
+}
