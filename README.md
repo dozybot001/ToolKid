@@ -11,7 +11,7 @@ A collection of small, focused web tools sharing one tech stack and a unified en
 | Tool | Path | Description |
 |------|------|-------------|
 | **CalmMD** | `/calmmd` | Local Markdown reader — reading-first, not an editor |
-| **Translator** | `/translator` | Multi-model collaborative PDF translation |
+| **Translator** | `/translator` | Multi-model collaborative PDF translation (UI only, core functionality WIP) |
 | **QuizGo** | `/quizgo` | JSON flashcards with Markdown, LaTeX & code support |
 | **Auto Space** | `/auto-space` | Auto-insert spaces between CJK and Latin characters |
 | **Pure Color** | `/pure-color` | Fullscreen solid color display for screen testing |

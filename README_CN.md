@@ -11,7 +11,7 @@
 | 工具 | 路径 | 一句话 |
 |------|------|--------|
 | **CalmMD** | `/calmmd` | 本地 Markdown 阅读器 — 阅读优先，不是编辑器 |
-| **Translator** | `/translator` | 多模型协作 PDF 翻译 |
+| **Translator** | `/translator` | 多模型协作 PDF 翻译（仅 UI，核心功能开发中） |
 | **QuizGo** | `/quizgo` | JSON 闪卡 — 点击翻卡，支持 Markdown、公式与代码 |
 | **Auto Space** | `/auto-space` | 中英文之间自动加空格 |
 | **Pure Color** | `/pure-color` | 全屏纯色显示，看片灯 / 屏幕测试 |
