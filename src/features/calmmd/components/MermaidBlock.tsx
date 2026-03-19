@@ -8,6 +8,30 @@ mermaid.initialize({
   fontFamily: "inherit",
 });
 
+type MermaidTheme = "dark" | "default";
+
+function useCalmMDTheme(): MermaidTheme {
+  const [theme, setTheme] = useState<MermaidTheme>(() => {
+    const root = document.querySelector(".calmmd-root");
+    return root?.getAttribute("data-theme") === "dark" ? "dark" : "default";
+  });
+
+  useEffect(() => {
+    const root = document.querySelector(".calmmd-root");
+    if (!root) return;
+
+    const observer = new MutationObserver(() => {
+      const next: MermaidTheme = root.getAttribute("data-theme") === "dark" ? "dark" : "default";
+      setTheme(next);
+    });
+
+    observer.observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+    return () => observer.disconnect();
+  }, []);
+
+  return theme;
+}
+
 type MermaidBlockProps = {
   code: string;
 };
@@ -17,12 +41,10 @@ export default function MermaidBlock({ code }: MermaidBlockProps) {
   const [svg, setSvg] = useState("");
   const [error, setError] = useState("");
   const uniqueId = `mermaid-${useId().replace(/:/g, "")}`;
+  const theme = useCalmMDTheme();
 
   useEffect(() => {
     let cancelled = false;
-
-    const theme =
-      document.documentElement.dataset.theme === "dark" ? "dark" : "default";
 
     mermaid.initialize({
       startOnLoad: false,
@@ -49,7 +71,7 @@ export default function MermaidBlock({ code }: MermaidBlockProps) {
     return () => {
       cancelled = true;
     };
-  }, [code, uniqueId]);
+  }, [code, uniqueId, theme]);
 
   if (error) {
     return (
