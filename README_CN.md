@@ -1,6 +1,6 @@
-[English](./README.md)
-
 # ToolKid
+
+中文 ｜ [English](./README.md)
 
 一组小而专注的 Web 工具，共享一套技术栈，统一入口。
 
