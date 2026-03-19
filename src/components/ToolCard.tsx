@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import type { Tool } from '../data/tools'
 
 interface ToolCardProps {
@@ -8,18 +9,18 @@ interface ToolCardProps {
 export default function ToolCard({ tool, variant }: ToolCardProps) {
   if (variant === 'mini') {
     return (
-      <a className="mini-card" href={tool.path}>
+      <Link className="mini-card" to={tool.path}>
         <span className="mini-card-icon">{tool.icon}</span>
         <span className="mini-card-name">{tool.name}</span>
         <span className="mini-card-subtitle">{tool.subtitle}</span>
-      </a>
+      </Link>
     )
   }
 
   return (
-    <a
+    <Link
       className={`featured-card featured-card--${tool.id}`}
-      href={tool.path}
+      to={tool.path}
       style={{ '--card-accent': tool.accent } as React.CSSProperties}
     >
       <div className="featured-card-content">
@@ -33,6 +34,6 @@ export default function ToolCard({ tool, variant }: ToolCardProps) {
           ))}
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
