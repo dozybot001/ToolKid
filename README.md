@@ -1,57 +1,62 @@
+[中文](./README_CN.md)
+
 # ToolKid
 
-一组小而专注的 Web 工具，共享一套技术栈，统一入口。
+A collection of small, focused web tools sharing one tech stack and a unified entry point.
 
-## 工具
+**Live:** https://dozybot001.github.io/ToolKid/
 
-| 工具 | 路径 | 一句话 |
-|------|------|--------|
-| **CalmMD** | `/calmmd` | 本地 Markdown 阅读器 — 阅读优先，不是编辑器 |
-| **Translator** | `/translator` | 多模型协作 PDF 翻译 |
-| **QuizGo** | `/quizgo` | JSON 闪卡 — 点击翻卡，支持 Markdown、公式与代码 |
-| **Auto Space** | `/auto-space` | 中英文之间自动加空格 |
-| **Pure Color** | `/pure-color` | 全屏纯色显示，看片灯 / 屏幕测试 |
-| **Fetch README** | `/fetch-readme` | 批量下载 GitHub 用户所有仓库的 README |
-| **File Size** | `/file-size-chart` | 可视化分析本地文件夹大小分布 |
+## Tools
 
-## CalmMD 核心主张
+| Tool | Path | Description |
+|------|------|-------------|
+| **CalmMD** | `/calmmd` | Local Markdown reader — reading-first, not an editor |
+| **Translator** | `/translator` | Multi-model collaborative PDF translation |
+| **QuizGo** | `/quizgo` | JSON flashcards with Markdown, LaTeX & code support |
+| **Auto Space** | `/auto-space` | Auto-insert spaces between CJK and Latin characters |
+| **Pure Color** | `/pure-color` | Fullscreen solid color display for screen testing |
+| **Fetch README** | `/fetch-readme` | Batch download READMEs from all repos of a GitHub user |
+| **File Size** | `/file-size-chart` | Visualize local folder size distribution |
+| **Prompt Amplifier** | `/prompt-amp` | Expand rough ideas into structured spec prompts via 3-round LLM calls |
 
-> Markdown 工具的问题不在"能不能渲染"，而在"有没有把阅读体验当作第一目标"。
+## CalmMD Philosophy
 
-- **阅读优先** — 所有决策以"读起来舒不舒服"为唯一标准
-- **内容优先** — 界面服务内容，不喧宾夺主
-- **本地优先** — 无账号、无云端、无同步，文件留在你手里
-- **弱工具感** — 减少控件、边框、按钮，让人忘记在用工具
-- **不做什么** — 不做编辑器，不做知识库，不做协作平台
+> The problem with Markdown tools isn't rendering — it's whether the reading experience is treated as the primary goal.
 
-## 设计规范
+- **Reading first** — every decision optimizes for reading comfort
+- **Content first** — UI serves content, never the other way around
+- **Local first** — no accounts, no cloud, no sync; files stay with you
+- **Minimal tooling** — fewer controls, borders, and buttons; forget you're using a tool
+- **What we don't do** — no editor, no knowledge base, no collaboration platform
 
-ToolKid 有一套统一的设计系统（`src/styles/tokens.css` + `toolkit.css`）：
+## Design System
 
-- 深色背景 `#0e0e12`，低对比度表面层级
-- 无衬线 UI 字体 + 等宽代码字体
-- 强调色 `--tk-accent`（金色 `#c9a87a`）用于关键操作和高亮
-- 通用组件类（`tk-btn`、`tk-input`、`tk-textarea`、`tk-page`）
+ToolKid has a unified design system (`src/styles/tokens.css` + `toolkit.css`):
 
-有独立设计语言的工具（如 CalmMD）保留自己的风格，其余工具共用统一规范。
+- Dark background `#0e0e12` with low-contrast surface layers
+- Sans-serif UI font + monospace code font
+- Accent color `--tk-accent` (gold `#c9a87a`) for key actions and highlights
+- Shared component classes (`tk-btn`, `tk-input`, `tk-textarea`, `tk-page`)
 
-## 开发
+Tools with their own design language (e.g. CalmMD) keep their own styles; the rest share the unified system.
+
+## Development
 
 ```bash
 npm install
 npm run dev       # http://localhost:5173
-npm run build     # 生产构建 → dist/
+npm run build     # production build → dist/
 ```
 
-## 技术栈
+## Tech Stack
 
-React 19 · Vite 6 · TypeScript · React Router（lazy loading）
+React 19 · Vite 6 · TypeScript · React Router (lazy loading)
 
-每个工具是 `src/features/<tool>/` 下的独立模块，CSS 用根类名隔离，按需加载。
+Each tool lives in `src/features/<tool>/` as an independent module with CSS isolation and on-demand loading.
 
-## 添加新工具
+## Adding a New Tool
 
-1. 在 `src/features/<tool-name>/` 下创建 `index.tsx` 和 `styles.css`
-2. 使用 `tk-page`、`tk-btn` 等统一组件（或自定义风格）
-3. 在 `src/App.tsx` 添加 lazy route
-4. 在 `src/data/tools.ts` 添加卡片数据
+1. Create `index.tsx` and `styles.css` under `src/features/<tool-name>/`
+2. Use shared `tk-page`, `tk-btn` classes (or custom styles)
+3. Add a lazy route in `src/App.tsx`
+4. Add card data in `src/data/tools.ts`
